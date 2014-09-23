@@ -11,11 +11,11 @@ header('Content-Type: text/html; charset=utf-8'); ?>
 <html>
 <head lang="en"> <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" href="../classes/view/style1.css">
+    <link rel="stylesheet" href="../view/style1.css">
 </head>
 
 <body>
-    <form action="../index.php" method="post" enctype="multipart/form-data">
+    <form action="../../index.php" method="post" enctype="multipart/form-data">
 
         <header class="container">
             <div class="backgr">

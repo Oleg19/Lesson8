@@ -39,7 +39,7 @@ class NewsController extends AbstractController
             echo 'Ошибка нет статей';
             die;
         };
-        $view = new View;
+        $view = new ViewController;
         $view->items = $allNews;
         $view->display('allview.php');
 
@@ -65,7 +65,7 @@ class NewsController extends AbstractController
         $allNews->title = $title;
         $allNews->content = $content;
         $allNews->save();
-        $view = new View;
+        $view = new ViewController;
         $view->items = $allNews;
         $view->display('allview.php');
 
@@ -78,7 +78,7 @@ class NewsController extends AbstractController
         $allNews = new TextTableModel;
         $this->allNews = $allNews->findByPk($id);
         $this->allNews->delete($id);
-        $view = new View;
+        $view = new ViewController;
         $view->items = $allNews;
         $view->display('allview.php');
 

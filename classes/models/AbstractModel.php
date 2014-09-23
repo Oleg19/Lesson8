@@ -55,7 +55,7 @@ abstract class AbstractModel
         $sql = "SELECT * FROM " . static::$table . " WHERE id_articles=:id";
         $sth = self::getDbh()->prepare($sql);
         $sth->execute(array(':id' => $id));
-        $sth->setFetchMode(PDO::FETCH_CLASS, get_called_class());
+        $sth->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
         $result = $sth->fetch();
         //var_dump($result); die;
         if (count($result) == 0) {
@@ -74,7 +74,7 @@ abstract class AbstractModel
         $sth->execute(array(':table' => static::$table));
         // var_dump($sth);
 
-        $sth->setFetchMode(PDO::FETCH_CLASS, get_called_class());
+        $sth->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
         $result = $sth->fetch();
         //var_dump($result);
         foreach ($result as $el) {
@@ -87,8 +87,7 @@ abstract class AbstractModel
         }
         // var_dump($colums); die;
         return $this->colTab;
-        /*          надо посчитать все колонки и вывести в результат
-              sql запрос написать для вывода 1 колонки */
+
     }
 
 

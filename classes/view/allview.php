@@ -1,11 +1,11 @@
-<?php namespace Classes\View; //header('Content-Type: text/html; charset=utf-8'); ?>
+<?php namespace Classes\View; header('Content-Type: text/html; charset=utf-8'); ?>
 
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="UTF-8">
+    <meta type="text/html" charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" href="../classes/view/style.css" type="text/css">
+    <link rel="stylesheet" href="style.css" >
 </head>
 
 <body>
