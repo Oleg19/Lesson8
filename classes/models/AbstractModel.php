@@ -10,7 +10,8 @@ namespace Classes\Models;
 
 abstract class AbstractModel
 {
-    static protected $table;
+    static protected $tableText;
+	static protected $tableAuthors;
     public $isNew = true;
     public $colums = 0;
 
@@ -33,9 +34,9 @@ abstract class AbstractModel
     static public function findAll()
     {
 
-        $sql = "SELECT id_author, author, article FROM ". static::$table ." LEFT OUTER JOIN authors ON id_article = id_author";
+        $sql = "SELECT id_author, author, article FROM ". static::$tableText ." LEFT OUTER JOIN ". static::$tableAuthors ." ON id_article = id_author";
         $sth = self::getDbh()->prepare($sql);
-        $sth->execute(array(':table' => static::$table));
+        $sth->execute(array(':table' => static::$tableText));
         $sth->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
         $result = $sth->fetchAll();
         if (count($result) == 0) {
@@ -52,8 +53,9 @@ abstract class AbstractModel
     static public function findByPk($id)
     {
 
-        $sql = "SELECT * FROM " . static::$table . " WHERE id_articles=:id";
-        $sth = self::getDbh()->prepare($sql);
+        $sql = "SELECT id, article FROM ". static::$table ." WHERE id=:id";
+        //var_dump($sql);
+	    $sth = self::getDbh()->prepare($sql);
         $sth->execute(array(':id' => $id));
         $sth->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
         $result = $sth->fetch();

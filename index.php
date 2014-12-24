@@ -10,8 +10,8 @@ function __autoload($class)
 }
 
 
-$ctrl = $_GET['ctrl'];
-$action = $_GET['action'];
+$ctrl = $_POST['ctrl'];
+$action = $_POST['action'];
 $ctrlClass = 'Classes\\Controllers\\' . ucfirst($ctrl) . 'Controller';
 
 $ctrl =new $ctrlClass;

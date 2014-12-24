@@ -11,6 +11,7 @@ class NewsController extends AbstractController
 
         try {
             $allNews = TextTableModel::findAll();
+	       // $allNews = AvtorsTableModel::findAll();
         } catch (Exception $e) {
             echo 'Ошибка нет статей';
             die;
