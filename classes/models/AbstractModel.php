@@ -33,7 +33,7 @@ abstract class AbstractModel
     static public function findAll()
     {
 
-        $sql = "SELECT * FROM " . static::$table;
+        $sql = "SELECT id_author, author, article FROM ". static::$table ." LEFT OUTER JOIN authors ON id_article = id_author";
         $sth = self::getDbh()->prepare($sql);
         $sth->execute(array(':table' => static::$table));
         $sth->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
