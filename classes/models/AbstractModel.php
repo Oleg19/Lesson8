@@ -10,8 +10,8 @@ namespace Classes\Models;
 
 abstract class AbstractModel
 {
-    static protected $tableText;
-	static protected $tableAuthors;
+    static protected $table;
+	//static protected $tableAuthors;
     public $isNew = true;
     public $colums = 0;
 
@@ -34,9 +34,9 @@ abstract class AbstractModel
     static public function findAll()
     {
 
-        $sql = "SELECT id_author, author, article FROM ". static::$tableText ." LEFT OUTER JOIN ". static::$tableAuthors ." ON id_article = id_author";
+        $sql = "SELECT id_author, author, article FROM ". static::$table ." LEFT OUTER JOIN authors ON id_article = id_author";
         $sth = self::getDbh()->prepare($sql);
-        $sth->execute(array(':table' => static::$tableText));
+        $sth->execute(array(':table' => static::$table));
         $sth->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
         $result = $sth->fetchAll();
         if (count($result) == 0) {

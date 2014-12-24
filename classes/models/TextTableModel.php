@@ -10,8 +10,13 @@ namespace  Classes\Models;
 
 class TextTableModel extends AbstractModel
 {
-    static protected $tableText = 'text';
-	static protected $tableAuthors = 'authors';
+    static protected $table = 'text';
+	//static protected $id = 'id';
+	//static protected $article = 'article';
+	//static protected $id_article = 'id_article';
+	//static protected $tableAuthors = 'authors';
+	//static protected $author = 'author';
+	//static protected $id_author = 'id_author';
 
 
 }
